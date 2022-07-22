@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 21 18:13:32 2022
+# Make data base, printed on Fri Jul 22 06:01:38 2022
 
 # Variables
 
@@ -103,7 +103,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 PYENV_ROOT = /home/gitpod/.pyenv
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-803aafe9-b138-4d1a-956d-d312d92f7afa.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6e4e5875-f021-4daa-b0e2-d8b87610fb64.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -145,7 +145,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
-GITPOD_CLI_APITOKEN = eI7o6HmGjNNQyb3msrRFj-dTa4IKhy3S
+GITPOD_CLI_APITOKEN = M9dlWHgY3pGtSo8KaIPMjJWIy1tFv_xL
 # automatic
 +F = $(notdir $+)
 # environment
@@ -205,7 +205,6 @@ MAKE_COMMAND := make
 # environment
 OLDPWD = /
 # default
- 
 .VARIABLES := 
 # environment
 GITPOD_WORKSPACE_CLASS = default
@@ -218,6 +217,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
+ 
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 NVM_DIR = /home/gitpod/.nvm
@@ -278,7 +278,7 @@ NGINX_DOCROOT_IN_REPO = public
 # environment
 rvm_loaded_flag = 1
 # environment
-GITPOD_INSTANCE_ID = b93b5846-6490-43f4-939c-be2f379ed595
+GITPOD_INSTANCE_ID = f22b2252-710a-46b1-92ca-d008dd18e4ae
 # environment
 GITPOD_WORKSPACE_URL = https://vyomasystem-challengesm-inh7dg0j92z.ws-us54.gitpod.io
 # default
@@ -296,7 +296,7 @@ MY_RUBY_HOME = /home/gitpod/.rvm/rubies/ruby-2.7.6
 
 # Directories
 
-# . (device 2346, inode 2013293687): 13 files, no impossibilities.
+# . (device 2346, inode 2416539413): 13 files, no impossibilities.
 
 # 13 files, no impossibilities in 1 directories.
 
@@ -354,6 +354,6 @@ GNUmakefile:
 # strcache performance: lookups = 24 / hit rate = 12%
 # hash-table stats:
 # Load=21/8192=0%, Rehash=0, Collisions=1/24=4%
-# Finished Make data base on Thu Jul 21 18:13:32 2022
+# Finished Make data base on Fri Jul 22 06:01:38 2022
 
  
