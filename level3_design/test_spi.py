@@ -91,5 +91,5 @@ async def test_spi_master(dut):
     cocotb.log.info(dut.dout.value)
     await Timer(20, units="us")
 
-    cocotb.log.info("Hey There",dut.ss.value)
+   # cocotb.log.info("Hey There",dut.rdata[0].value)
     assert dut.ss.value == 1, "fail"
