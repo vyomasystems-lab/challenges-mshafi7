@@ -25,8 +25,10 @@ async def test_seq_bug1011011(dut):
 
     x=[1,0,1,1,0,1,1]
     for i in range(len(x)):
+        cocotb.log.info(f'input={x[i]} and output={int(dut.seq_seen.value)}')
         dut.inp_bit.value = x[i]
         await FallingEdge(dut.clk)
+    cocotb.log.info(f'output={int(dut.seq_seen.value)}')
     assert dut.seq_seen.value == 1
 
 
@@ -45,8 +47,9 @@ async def test_seq_bug111011(dut):
     await FallingEdge(dut.clk)
     x=[1,1,1,0,1,1]
     for i in range(len(x)):
-        cocotb.log.info(dut.seq_seen.value)
+        cocotb.log.info(f'input={x[i]} and output={int(dut.seq_seen.value)}')
         dut.inp_bit.value = x[i]
         await FallingEdge(dut.clk)
+    cocotb.log.info(f'output={int(dut.seq_seen.value)}')
     assert dut.seq_seen.value == 1
 

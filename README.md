@@ -1,4 +1,3 @@
-# FINAL REPORT
 # MUX Design Verification(Level1Design1)
 
 ## Test Scenario **(Important)**
@@ -49,23 +48,37 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following
 
 ```
-      5'b01011: out = inp11;
-      5'b01101: out = inp12;    <== Bug "two cases with 01101"
-      5'b01101: out = inp13;
-      5'b01110: out = inp14;
+      SEQ_1:
+      begin
+        if(inp_bit == 1)
+          next_state = IDLE;    <== Bug
+        else
 ```
 ```
-      5'b11101: out = inp29;    <== inp30 is not assigned
-      default: out = 0;
-    endcase
+      SEQ_101:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1011;
+        else
+          next_state = IDLE;     <== BUG
+
+```
+    SEQ_1011:
+        next_state = IDLE;    <== BUG
 ```
 
-So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
+So assigning ``5SEQ_1011:
+      begin
+      if(inp_bit == 1)
+        next_state = SEQ_1;
+      else
+        next_state = SEQ_10;
+      end`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Mux_Fail_1.png)
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Seq_Pass.png)
 
 The updated design is checked in as adder_fix.v
 
