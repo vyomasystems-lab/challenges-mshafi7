@@ -65,7 +65,7 @@ So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the de
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://i.imgur.com/5XbL1ZH.png)
+![](/workspace/challenges-mshafi7/Images/Mux_Fail_1.png)
 
 The updated design is checked in as adder_fix.v
 
