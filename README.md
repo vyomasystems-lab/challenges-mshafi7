@@ -32,15 +32,16 @@ Updating the design and re-running the test makes the test pass.
 The updated design is checked in as adder_fix.v
 
 ## Verification Strategy
-
+Assigning a constant value to all the input except select line and creating a loop in which select line value is varied and output is observed. If output doesn't match the input value commonly assigned then there is a bug. For every loop there is 1ns Delay so we can find the bug based on failure time.
 ## Is the verification complete ?
+*Yes the Verification is Complete
 
 # Sequence Detector(Level1Design2)
 
 ## Test Scenario **(Important)**
-- Test Inputs: all inputs are set to 1
-- Expected Output: for sel value from 0 to 30 expected output is 1
-- Observed Output in the DUT dut.out = 0 at 13 ns and also at 30n2
+- Test Inputs: 111011 and 1011011 (overlaping Sequence)
+- Expected Output: Machine should detect sequence for overlapping sequence
+- Observed Output in the DUT dut.out = Sequence not detected for overlapping sequence 
 
 Output mismatches for the above inputs proving that there is a design bug
 
@@ -67,13 +68,11 @@ Based on the above test input and analysing the design, we see the following
         next_state = IDLE;    <== BUG
 ```
 
-So assigning ``SEQ_1011:
-      begin
-      if(inp_bit == 1)
+So assigning ``next_state = SEQ_1;`` in else of SEQ_1 state, assigning ``next_state = SEQ_10;`` in else of SEQ_101 state and putting if condition ``if(inp_bit == 1)
         next_state = SEQ_1;
       else
         next_state = SEQ_10;
-      end`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
+      end`` in SEQ_1011 state fixed the bug.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
