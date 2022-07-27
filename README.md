@@ -61,13 +61,19 @@ Based on the above test input and analysing the design, we see the following
           next_state = SEQ_1011;
         else
           next_state = IDLE;     <== BUG
-
+```
 ```
     SEQ_1011:
         next_state = IDLE;    <== BUG
 ```
 
-So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
+So assigning ``SEQ_1011:
+      begin
+      if(inp_bit == 1)
+        next_state = SEQ_1;
+      else
+        next_state = SEQ_10;
+      end`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
