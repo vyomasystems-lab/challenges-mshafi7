@@ -22,7 +22,7 @@ def clock_gen(signal):
 
 # Sample Test
 @cocotb.test()
-def ANDN1(dut):
+def Bitmanip_test(dut):
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -36,9 +36,9 @@ def ANDN1(dut):
     # input transaction
    # y=random.randint(0, 1000)
    #'0x{0:08X}'.format(20)
-    mav_putvalue_src1 = 0x5444
-    mav_putvalue_src2 = 0x12345
-    mav_putvalue_src3 = 0x123
+    mav_putvalue_src1 = 0x213
+    mav_putvalue_src2 = 0x0
+    mav_putvalue_src3 = 0x0
     mav_putvalue_instr = 0x101010B3
     
     x=[0x00007033,0x00006033,0x00004033,0x40007033,0x40004022,0x00001033,0x00005033,0x20001033,0x20005033,0x60001033,0x60005033,0x48001033,0x28001033,0x68001033,0x48005033,0x28001033,0x68005033,
@@ -54,6 +54,7 @@ def ANDN1(dut):
     dut.mav_putvalue_src3.value = mav_putvalue_src3
     dut.EN_mav_putvalue.value = 1
     #dut.mav_putvalue_instr.value = mav_putvalue_instr
+    cout=0
     for i in range(len(x)):
         dut.mav_putvalue_instr.value = x[i]
         expected_mav_putvalue = bitmanip(x[i], mav_putvalue_src1, mav_putvalue_src2, mav_putvalue_src3)
@@ -64,6 +65,9 @@ def ANDN1(dut):
         cocotb.log.info(f'EXPECTED OUTPUT={hex(expected_mav_putvalue)}')
         # comparison
         error_message = f'Value mismatch DUT = {hex(dut_output)} does not match MODEL = {hex(expected_mav_putvalue)}'
-        #if dut_output != expected_mav_putvalue:
-    assert True, error_message
+        if dut_output != expected_mav_putvalue:
+            cout=cout+1
+        cocotb.log.info(f'Total mismatches = {cout}')
+    if cout != 0:
+        assert False
 
