@@ -28,7 +28,7 @@ So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the de
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://i.imgur.com/5XbL1ZH.png)
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/MUX_pass.png)
 
 The updated design is checked in as adder_fix.v
 

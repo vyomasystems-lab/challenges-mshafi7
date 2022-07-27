@@ -41,6 +41,7 @@ async def test_mux(dut):
     for i in range(0,31):
         dut.sel.value = i
         await Timer(1, units='us')
+        dut._log.info(f'inp{i}={1} sel={i} out={int(dut.out.value)}')
         x=1
         if dut.out.value != x:
             assert False
@@ -51,6 +52,6 @@ async def test_mux(dut):
     await Timer(1, units='us')
     assert True
         
-        #dut._log.info(f'A={A:05} B={B:05} model={A+B:05} DUT={int(dut.sum.value):05}')
-        #assert dut.sum.value == A+B, "Randomised test failed with: {A} + {B} = {SUM}".format(
-         #   A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
+    
+       # assert dut.sum.value == A+B, "Randomised test failed with: {A} + {B} = {SUM}".format(
+        #  A=dut.a.value, B=dut.b.value, SUM=dut.sum.value)
