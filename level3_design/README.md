@@ -10,7 +10,7 @@ Output mismatches for the above inputs proving that there is a design bug
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
 
-![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Level3_pass.png)
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Spi_fail.png)
 
 
 So assigning ``ss=0`` in the design code will fix the bug.
