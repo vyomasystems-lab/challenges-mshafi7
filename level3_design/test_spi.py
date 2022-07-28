@@ -49,9 +49,17 @@ async def test_spi_master(dut):
     await Timer(20, units="ns")
     start =0
     dut.start.value = start
+    await FallingEdge(dut.sck)
+    dut.din.value <= 1
+    cocotb.log.info(dut.dout.value)
+    await RisingEdge(dut.sck)
+    dut.din.value <= 0
+    if dut.dout.value != 0:
+        raise TestFailure("data mismatch")
+    cocotb.log.info(dut.dout.value)
     await RisingEdge(dut.sck)
     dut.din.value <= 1
-    if dut.dout.value != 0:
+    if dut.dout.value != 1:
         raise TestFailure("data mismatch")
     cocotb.log.info(dut.dout.value)
     await RisingEdge(dut.sck)
@@ -65,11 +73,6 @@ async def test_spi_master(dut):
         raise TestFailure("data mismatch")
     cocotb.log.info(dut.dout.value)
     await RisingEdge(dut.sck)
-    dut.din.value <= 0
-    if dut.dout.value != 1:
-        raise TestFailure("data mismatch")
-    cocotb.log.info(dut.dout.value)
-    await RisingEdge(dut.sck)
     dut.din.value <= 1
     if dut.dout.value != 1:
         raise TestFailure("data mismatch")
@@ -77,11 +80,6 @@ async def test_spi_master(dut):
     await RisingEdge(dut.sck)
     dut.din.value <= 1
     if dut.dout.value != 1:
-        raise TestFailure("data mismatch")
-    cocotb.log.info(dut.dout.value)
-    await RisingEdge(dut.sck)
-    dut.din.value <= 1
-    if dut.dout.value != 0:
         raise TestFailure("data mismatch")
     cocotb.log.info(dut.dout.value)
     await RisingEdge(dut.sck)
@@ -89,7 +87,10 @@ async def test_spi_master(dut):
     if dut.dout.value != 0:
         raise TestFailure("data mismatch")
     cocotb.log.info(dut.dout.value)
-    await Timer(20, units="ns")
+    await RisingEdge(dut.sck)
+    if dut.dout.value != 0:
+        raise TestFailure("data mismatch")
+    await Timer(15,units='ns')
 
    # cocotb.log.info("Hey There",dut.rdata[0].value)
-    assert dut.ss.value == 1 or dut.done.value, "fail"
+    assert (dut.done.value == 1) and (dut.ss.value == 1) and (dut.sck.value ==1), "fail"
