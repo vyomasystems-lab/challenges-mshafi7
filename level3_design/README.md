@@ -29,7 +29,7 @@ Updating the design and re-running the test makes the test pass.
 
 ![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Level3_pass.png)
 
-The updated design is checked in as adder_fix.v
+The updated design is checked in as Mux_fix.v
 
 ## Verification Strategy
 
