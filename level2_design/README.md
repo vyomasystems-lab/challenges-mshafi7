@@ -10,16 +10,16 @@ Output mismatches for the above inputs proving that there is a design bug
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
 
-
+![](https://i.imgur.com/5XbL1ZH.png)
 
 So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
 
 ## Design Fix
-Updating the design and re-running the test makes the test pass.
 
-![](https://i.imgur.com/5XbL1ZH.png)
 
-The updated design is checked in as adder_fix.v
+
+
+
 
 ## Verification Strategy
 [0x00007033,0x00006033,0x00004033,0x40007033,0x40004022,0x00001033,0x00005033,0x20001033,0x20005033,0x60001033,0x60005033,0x48001033,0x28001033,0x68001033,0x48005033,0x28001033,0x68005033,
