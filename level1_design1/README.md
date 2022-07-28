@@ -9,6 +9,7 @@ Output mismatches for the above inputs proving that there is a design bug
 
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Mux_Fail_1.png)
 
 ```
       5'b01011: out = inp11;
@@ -16,6 +17,7 @@ Based on the above test input and analysing the design, we see the following
       5'b01101: out = inp13;
       5'b01110: out = inp14;
 ```
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Mux_Fail_2.png)
 ```
       5'b11101: out = inp29;    <== inp30 is not assigned
       default: out = 0;
