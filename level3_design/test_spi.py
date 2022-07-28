@@ -26,7 +26,7 @@ async def test_spi_master(dut):
 
     # clock
     #cocotb.fork(clock_gen(dut.clk))
-    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    clock = Clock(dut.clk, 10, units="ns")  # Create a 10us period clock on port clk
     cocotb.start_soon(clock.start()) 
 
 
@@ -36,17 +36,17 @@ async def test_spi_master(dut):
     m_tdat = 0b01111100
     cdiv = 1
     dut.rstb.value = rstb
-    await Timer(20, units="us") 
+    await Timer(20, units="ns") 
     rstb=1
     dut.rstb.value = rstb
     dut.start.value = start
     dut.tdat.value = m_tdat
     dut.cdiv.value = cdiv
 
-    await Timer(20, units="us") 
+    await Timer(20, units="ns") 
     start=1
     dut.start.value = start
-    await Timer(20, units="us")
+    await Timer(20, units="ns")
     start =0
     dut.start.value = start
     await RisingEdge(dut.sck)
@@ -89,7 +89,7 @@ async def test_spi_master(dut):
     if dut.dout.value != 0:
         raise TestFailure("data mismatch")
     cocotb.log.info(dut.dout.value)
-    await Timer(20, units="us")
+    await Timer(20, units="ns")
 
    # cocotb.log.info("Hey There",dut.rdata[0].value)
-    assert dut.ss.value == 1, "fail"
+    assert dut.ss.value == 1 or dut.done.value, "fail"
