@@ -99,7 +99,7 @@ always @(start or cur or nbit or cdiv or rreg) begin
 				end//send
 			finish:begin
 					shift=0;
-					ss=1;
+					ss=0;       //bug
 					clr=1;
 					nxt=idle;
 				 end
