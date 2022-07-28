@@ -8,8 +8,8 @@
 Output mismatches for the above inputs proving that there is a design bug
 
 ## Design Bug
-Based on the above test input and analysing the design, we see the following
-
+Based on the above test input and analysing the design, we see the following test fail due to some bug
+![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Seq_Fail.png)
 ```
       SEQ_1:
       begin
