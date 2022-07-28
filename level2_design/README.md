@@ -27,4 +27,4 @@ Based on the above test input and analysing the design, we see the following
 
 The above values are passed as 32 bit instructions to the input and the dut output is compared with expected output using for loop.  
 ## Is the verification complete ?
-- The Verification is complete but Bugs are not fixed.
+- The Verification is not complete and Bugs are not fixed.
