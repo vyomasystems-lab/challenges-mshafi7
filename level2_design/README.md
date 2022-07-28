@@ -12,7 +12,7 @@ Based on the above test input and analysing the design, we see the following
 
 ![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/level2_fail.png)
 
-So assigning ``5'b11110: out = inp30;`` and ``5'b01100: out = inp12;`` in the design code will fix the bug.
+
 
 ## Design Fix
 
