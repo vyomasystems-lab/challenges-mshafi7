@@ -44,5 +44,7 @@ Updating the design and re-running the test makes the test pass.
 The updated design is checked in as seq_detect_1011_Fix.v
 
 ## Verification Strategy
+By drawing the FSM of the overlapping sequence(1011) and checking all possible overlapping sequences as test vectors. 
 
 ## Is the verification complete ?
+- Yes Verification is complete 
